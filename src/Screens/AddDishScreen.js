@@ -43,9 +43,9 @@ export default function AddDishScreen({ addMenuItem, editMenuItem, route, naviga
           <TextInput style={styles.input} placeholder="R 195.00" value={price} onChangeText={setPrice} keyboardType="decimal-pad"/>
           <Text style={styles.label}>Select Course</Text>
           <View style={{flexDirection:'row', gap:8}}>
-            {['Starter','Main Course','Dessert'].map(c=>(
-              <TouchableOpacity key={c} onPress={()=>setCourse(c)} style={[styles.courseBtn, course===c && {backgroundColor:PRIMARY}]}>
-                <Text style={{color: course===c ? 'white' : '#607D8B', fontSize:12}}>{c}</Text>
+            {['Starter', 'Main Course', 'Dessert'].map(c => (
+              <TouchableOpacity key={c} onPress={() => setCourse(c)} style={[styles.courseBtn, course === c && { backgroundColor: PRIMARY }]}>
+                <Text style={{ color: course === c ? 'white' : '#607D8B', fontSize: 12 }}>{c}</Text>
               </TouchableOpacity>
             ))}
           </View>

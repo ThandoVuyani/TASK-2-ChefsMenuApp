@@ -6,19 +6,17 @@ const PRIMARY = '#2196F3';
 export default function MenuListScreen({ menuItems, onAddPress, onDelete, navigation }) {
   const [filter, setFilter] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const filters = ['All', 'Starters', 'Mains', 'Desserts'];
+  const filters = ['All', 'Starter', 'Main Course', 'Dessert'];
 
-  // Filter menu items based on selected filter and search query
   const filtered = menuItems.filter(item => {
-    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase())
-      || item.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const itemName = (item.name || '').toLowerCase();
+    const itemDescription = (item.description || '').toLowerCase();
+    const query = searchQuery.toLowerCase();
 
-      let matchesFilter = true;
-      if (filter === 'Starters') matchesFilter = item.course === 'Starters';
-      else if (filter === 'Mains') matchesFilter = item.course === 'Mains';
-      else if (filter === 'Desserts') matchesFilter = item.course === 'Desserts';
+    const matchesSearch = itemName.includes(query) || itemDescription.includes(query);
+    const matchesFilter = filter === 'All' || item.course === filter;
 
-      return matchesSearch && matchesFilter;
+    return matchesSearch && matchesFilter;
   });
       
 

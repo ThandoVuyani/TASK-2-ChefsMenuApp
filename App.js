@@ -20,6 +20,7 @@ export default function App() {
     },
     {
       id: '2',
+      name: 'Classic Caprese Salad',
       description: 'Classic Italian salad with sliced fresh mozzarella, tomatoes, and sweet basil, drizzled with balsamic glaze.',
       course: 'Starter',
       price: '85.00',
@@ -67,7 +68,14 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Chef's Menu">
-          {(props) => <MenuListScreen {...props} menuItems={menuItems} onDelete={deleteMenuItem} />}
+          {(props) => (
+            <MenuListScreen
+              {...props}
+              menuItems={menuItems}
+              onDelete={deleteMenuItem}
+              onAddPress={() => props.navigation.navigate('Add New Dish')}
+            />
+          )}
         </Stack.Screen>
         <Stack.Screen name="Add New Dish">
           {(props) => <AddDishScreen {...props} addMenuItem={addMenuItem} editMenuItem={editMenuItem} />}
