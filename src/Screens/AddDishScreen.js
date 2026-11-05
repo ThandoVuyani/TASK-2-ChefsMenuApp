@@ -18,7 +18,12 @@ export default function AddDishScreen({ addMenuItem, editMenuItem, route, naviga
     if(isNaN(price.replace('R','').trim())){
       setError('Price must be a number'); return;
     }
-    onSave({ name: dishName, description, course, price });
+    if (itemToEdit) {
+      editMenuItem(itemToEdit.id, { name: dishName, description, course, price });
+    } else {
+      addMenuItem({ name: dishName, description, course, price });
+    }
+    navigation.goBack();
   };
 
   return (
