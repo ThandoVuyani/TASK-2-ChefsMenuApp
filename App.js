@@ -57,7 +57,7 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Chef's Menu">
-          {(props) => <MenuListScreen {...props} menuItems={menuItems} />}
+          {(props) => <MenuListScreen {...props} menuItems={menuItems} onDelete={deleteMenuItem} />}
         </Stack.Screen>
         <Stack.Screen name="Add New Dish">
           {(props) => <AddDishScreen {...props} addMenuItem={addMenuItem} />}
