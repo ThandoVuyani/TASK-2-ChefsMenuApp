@@ -58,7 +58,7 @@ export default function MenuListScreen({ menuItems, onAddPress, onDelete, naviga
                 <Text style={styles.cardDesc}>{item.description}</Text>
               </View>
               <View style={{flexDirection:'row', justifyContent:'flex-end', marginTop:6, marginRight:12}}>
-                <TouchableOpacity onPress={()=>navigation.navigate('AddMenuItem', {item})} style={{marginRight:12}}>
+                <TouchableOpacity onPress={()=>navigation.navigate('Add New Dish', {itemToEdit: item})} style={{marginRight:12}}>
                   <Text>Edit</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=>onDelete(item.id)}>
