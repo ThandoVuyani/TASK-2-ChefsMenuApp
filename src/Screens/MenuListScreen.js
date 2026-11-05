@@ -8,8 +8,12 @@ export default function MenuListScreen({ menuItems, onAddPress, onDeletePress, n
   const [searchQuery, setSearchQuery] = useState('');
   const filters = ['All', 'Starters', 'Mains', 'Desserts', 'Drinks'];
 
-  const filtered = filter === 'All' ? menuItems : menuItems.filter(i => 
-    i.course.includes(filter) || (filter==='Mains' && i.course==='Main Course') || (filter==='Starters' && i.course==='Starter')
+  // Filter menu items based on selected filter and search query
+  const filtered = menuItems.filter(item => {
+    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase())
+      || item.description.toLowerCase().includes(searchQuery.toLowerCase());
+
+      
   );
 
   return (
