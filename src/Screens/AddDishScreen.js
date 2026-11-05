@@ -5,10 +5,10 @@ const PRIMARY = '#2196F3';
 
 export default function AddDishScreen({ addMenuItem, editMenuItem, route, navigation }) {
   const itemToEdit = route.params?.itemToEdit;
-  const [dishName, setDishName] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
-  const [course, setCourse] = useState('Main Course');
+  const [dishName, setDishName] = useState(itemToEdit ? itemToEdit.name : '');
+  const [description, setDescription] = useState(itemToEdit ? itemToEdit.description : '');
+  const [price, setPrice] = useState(itemToEdit ? itemToEdit.price : '');
+  const [course, setCourse] = useState(itemToEdit ? itemToEdit.course : 'Main Course');
   const [error, setError] = useState('');
 
   const handleSave = () => {
@@ -29,7 +29,9 @@ export default function AddDishScreen({ addMenuItem, editMenuItem, route, naviga
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={onBack}><Text style={styles.title}>← Add New Dish</Text></TouchableOpacity>
+        <TouchableOpacity onPress={navigation.goBack}>
+          <Text style={styles.title}>← Add New Dish</Text>
+        </TouchableOpacity>
       </View>
       <ScrollView style={{backgroundColor:'#EAF0F6', flex:1}}>
         <View style={styles.form}>
