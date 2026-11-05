@@ -45,8 +45,12 @@ export default function App() {
 
   const addMenuItem = (newItem) => {
     setMenuItems((prevItems) => [...prevItems, { ...newItem, id: Date.now().toString() }]);
+  };
   const deleteMenuItem = (id) => {
     setMenuItems((prevItems) => prevItems.filter((item) => item.id !== id));  
+  };
+  const editMenuItem = (id, updatedItem) => {
+    setMenuItems((prevItems) => prevItems.map((item) => (item.id === id ? { ...updatedItem, id } : item)));
   };
 
   return (
