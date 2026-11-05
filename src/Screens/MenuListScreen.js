@@ -13,8 +13,11 @@ export default function MenuListScreen({ menuItems, onAddPress, onDeletePress, n
     const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase())
       || item.description.toLowerCase().includes(searchQuery.toLowerCase());
 
+      let matchesFilter = true;
+      if (filter === 'Starters') matchesFilter = item.course === 'Starters';
+      else if (filter === 'Mains') matchesFilter = item.course === 'Mains';
+      else if (filter === 'Desserts') matchesFilter = item.course === 'Desserts';
       
-  );
 
   return (
     <SafeAreaView style={styles.container}>
