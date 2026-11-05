@@ -6,7 +6,7 @@ const PRIMARY = '#2196F3';
 export default function MenuListScreen({ menuItems, onAddPress, onDelete, navigation }) {
   const [filter, setFilter] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const filters = ['All', 'Starters', 'Mains', 'Desserts', 'Drinks'];
+  const filters = ['All', 'Starters', 'Mains', 'Desserts'];
 
   // Filter menu items based on selected filter and search query
   const filtered = menuItems.filter(item => {
