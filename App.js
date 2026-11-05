@@ -45,6 +45,8 @@ export default function App() {
 
   const addMenuItem = (newItem) => {
     setMenuItems((prevItems) => [...prevItems, { ...newItem, id: Date.now().toString() }]);
+  const deleteMenuItem = (id) => {
+    setMenuItems((prevItems) => prevItems.filter((item) => item.id !== id));  
   };
 
   return (
@@ -60,7 +62,7 @@ export default function App() {
           {(props) => <MenuListScreen {...props} menuItems={menuItems} onDelete={deleteMenuItem} />}
         </Stack.Screen>
         <Stack.Screen name="Add New Dish">
-          {(props) => <AddDishScreen {...props} addMenuItem={addMenuItem} />}
+          {(props) => <AddDishScreen {...props} addMenuItem={addMenuItem} editMenuItem={editMenuItem} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
