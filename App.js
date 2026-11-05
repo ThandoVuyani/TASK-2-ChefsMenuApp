@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Alert, SafeAreaView, ScrollView }
- from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Alert, SafeAreaView, ScrollView } 
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MenuListScreen from './src/Screens/MenuListScreen';
+import AddDishScreen from './src/Screens/AddDishScreen';
 
 const Stack = createNativeStackNavigator();
+
 
 export default function App() {
   // Already loaded menu items as shown on my High fidelity frames
