@@ -48,13 +48,23 @@ export default function MenuListScreen({ menuItems, onAddPress, onDelete, naviga
       ) : (
         <FlatList data={filtered} keyExtractor={i=>i.id} contentContainerStyle={{paddingBottom:100}}
           renderItem={({item})=>(
-            <View style={styles.card}>
-              <View style={{flexDirection:'row', justifyContent:'space-between'}}>
-                <Text style={styles.cardName}>{item.name}</Text>
-                <Text style={styles.cardPrice}>{item.price}</Text>
+            <View>
+              <View style={styles.card}>
+                <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+                  <Text style={styles.cardName}>{item.name}</Text>
+                  <Text style={styles.cardPrice}>{item.price}</Text>
+                </View>
+                <View style={styles.badge}><Text style={styles.badgeText}>{item.course}</Text></View>
+                <Text style={styles.cardDesc}>{item.description}</Text>
               </View>
-              <View style={styles.badge}><Text style={styles.badgeText}>{item.course}</Text></View>
-              <Text style={styles.cardDesc}>{item.description}</Text>
+              <View style={{flexDirection:'row', justifyContent:'flex-end', marginTop:6, marginRight:12}}>
+                <TouchableOpacity onPress={()=>navigation.navigate('EditMenuItem', {item})} style={{marginRight:12}}>
+                  <Text>Edit</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>onDelete(item.id)}>
+                  <Text style={{color:'red'}}>Delete</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           )}
         />
