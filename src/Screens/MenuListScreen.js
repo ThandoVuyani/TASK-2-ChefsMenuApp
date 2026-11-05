@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, FlatList, ScrollView, SafeAre
 
 const PRIMARY = '#2196F3';
 
-export default function MenuListScreen({ menuItems, onAddPress, onDeletePress, navigation }) {
+export default function MenuListScreen({ menuItems, onAddPress, onDelete, navigation }) {
   const [filter, setFilter] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const filters = ['All', 'Starters', 'Mains', 'Desserts', 'Drinks'];
@@ -17,6 +17,9 @@ export default function MenuListScreen({ menuItems, onAddPress, onDeletePress, n
       if (filter === 'Starters') matchesFilter = item.course === 'Starters';
       else if (filter === 'Mains') matchesFilter = item.course === 'Mains';
       else if (filter === 'Desserts') matchesFilter = item.course === 'Desserts';
+
+      return matchesSearch && matchesFilter;
+  });
       
 
   return (
