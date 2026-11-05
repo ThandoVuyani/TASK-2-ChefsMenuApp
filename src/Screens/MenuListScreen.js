@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, ScrollView, SafeAreaView, TextInput } from 'react-native';
 
 const PRIMARY = '#2196F3';
 
-export default function MenuListScreen({ menuItems, onAddPress }) {
+export default function MenuListScreen({ menuItems, onAddPress, onDeletePress, navigation }) {
   const [filter, setFilter] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
   const filters = ['All', 'Starters', 'Mains', 'Desserts', 'Drinks'];
 
   const filtered = filter === 'All' ? menuItems : menuItems.filter(i => 
@@ -15,6 +16,12 @@ export default function MenuListScreen({ menuItems, onAddPress }) {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Chef's Menu</Text>
+        <TextInput
+          placeholder="Search menu items..."
+          value={searchQuery}
+          onChangeText={setSearchQuery}
+          style={styles.searchInput}
+        />
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{marginTop:12}}>
           <View style={{flexDirection:'row'}}>
             {filters.map(f=>(
