@@ -3,7 +3,8 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, SafeAr
 
 const PRIMARY = '#2196F3';
 
-export default function AddDishScreen({ onBack, onSave }) {
+export default function AddDishScreen({ addMenuItem, editMenuItem, route, navigation }) {
+  const itemToEdit = route.params?.itemToEdit;
   const [dishName, setDishName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
