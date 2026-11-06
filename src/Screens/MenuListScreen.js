@@ -46,6 +46,11 @@ export default function MenuListScreen({ menuItems, onAddPress, onDelete, naviga
           </View>
         </ScrollView>
       </View>
+      <View style={styles.summaryBox}>
+        <Text style={styles.summaryText}>Total: {filtered.length}</Text>
+        <Text style={styles.summaryText}>Total Price: R{totalMenuPrice.toFixed(2)}</Text>
+        <Text style={styles.summaryText}>Average Price: R{averagePrice}</Text>
+      </View>
 
       {filtered.length===0 ? (
         <View style={styles.empty}><Text>No menu items have been added yet.</Text></View>
