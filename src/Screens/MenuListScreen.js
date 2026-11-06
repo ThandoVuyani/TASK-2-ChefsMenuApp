@@ -99,4 +99,7 @@ const styles = StyleSheet.create({
   fab:{position:'absolute', bottom:24, alignSelf:'center', backgroundColor:PRIMARY, borderRadius:24, padding:12, paddingHorizontal:20},
   fabText:{color:'white', fontWeight:'bold'},
   empty:{padding:30, alignItems:'center', marginTop:50}
+  summaryBox:{backgroundColor:'white', marginHorizontal:12, mariginTop:12, padding:12, borderRadius:6, flexDirection:'row', justifyContent:'space-between', marginBottom:6},
+  summaryText:{fontWeight:'bold', color:'#424242'},
+  searchInput:{backgroundColor:'white', borderRadius:6, paddingHorizontal:12, marginTop:12, height:40}
 });
