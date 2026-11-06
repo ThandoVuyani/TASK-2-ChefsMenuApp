@@ -23,7 +23,7 @@ export default function MenuListScreen({ menuItems, onAddPress, onDelete, naviga
     const price = parseFloat(String(item.price || 0).replace('R', '').trim()) || 0;
     return total + price;
   }, 0);
-  const averagePrice = filtered.length > 0 ? (totalMenuPrice / filtered.length).toFixed(2) : 0;
+  const averagePrice = filtered.length > 0 ? (totalMenuPrice / filtered.length).toFixed(2) : 0.00;
     
 
   return (
