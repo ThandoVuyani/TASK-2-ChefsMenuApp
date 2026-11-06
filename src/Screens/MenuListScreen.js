@@ -18,7 +18,13 @@ export default function MenuListScreen({ menuItems, onAddPress, onDelete, naviga
 
     return matchesSearch && matchesFilter;
   });
-      
+//-- Total Menu Price & Average Price Calculation --//
+  const totalMenuPrice = filtered.reduce((total, item) => {
+    const price = parseFloat(String(item.price || 0).replace('R', '').trim()) || 0;
+    return total + price;
+  }, 0);
+  const averagePrice = filtered.length > 0 ? (totalMenuPrice / filtered.length).toFixed(2) : 0;
+    
 
   return (
     <SafeAreaView style={styles.container}>
